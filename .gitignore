@@ -1,0 +1,7 @@
+# History Files #
+#################
+.DS_Store
+.ipynb_checkpoints
+
+# Data Files #
+/data
