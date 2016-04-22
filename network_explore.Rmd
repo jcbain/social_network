@@ -1,0 +1,20 @@
+```{R}
+setwd('~/Desktop/Spring 2016/Data Mining/project/')
+```
+
+```{R}
+library(networkD3)
+library(igraph)
+library(network)
+library(sna)
+library(ndtv)
+```
+
+```{R}
+nodes<-read.csv('data/YouTube-dataset/data/nodes.csv',header = FALSE)
+edges<-read.csv('data/YouTube-dataset/data/edges.csv',header = FALSE)
+```
+
+```{R}
+net <- graph.data.frame(edges, nodes, directed=T)
+```
