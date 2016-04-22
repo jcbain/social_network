@@ -1,3 +1,7 @@
+# Network Mining
+
+Following the guidance of [this tutorial](https://rpubs.com/kateto/netviz)
+
 ```{R}
 setwd('~/Desktop/Spring 2016/Data Mining/project/')
 ```
