@@ -1,7 +1,8 @@
 setwd('~/Desktop/Spring 2016/Data Mining/project/')
+
 library(linkcomm)
 head(lesmiserables)
-frame <- 
+
 lc <- getLinkCommunities(lesmiserables, hcmethod = "single")
 plot(lc, type = "graph", layout = layout.fruchterman.reingold)
 plot(lc, type = "graph", layout = "spencer.circle")
@@ -12,3 +13,8 @@ head(sort(cc, decreasing = TRUE))
 head(lc$numclusters)
 cm <- getCommunityConnectedness(lc, conn = "modularity")
 plot(lc, type = "commsumm", summary = "modularity")
+
+frame<- read.csv('data/YouTube-dataset/data/group-edges.csv', header = FALSE)
+lc <- getLinkCommunities(frame, hcmethod = "single")
+plot(lc, type = "graph", layout = layout.fruchterman.reingold)
+saveRDS(lc, 'data/youtube_group.rds')
