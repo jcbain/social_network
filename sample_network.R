@@ -14,7 +14,27 @@ head(lc$numclusters)
 cm <- getCommunityConnectedness(lc, conn = "modularity")
 plot(lc, type = "commsumm", summary = "modularity")
 
+## expirement with my data ##
+
 frame<- read.csv('data/YouTube-dataset/data/group-edges.csv', header = FALSE)
 lc <- getLinkCommunities(frame, hcmethod = "single")
 plot(lc, type = "graph", layout = layout.fruchterman.reingold)
 saveRDS(lc, 'data/youtube_group.rds')
+cc <- getCommunityCentrality(lc)
+head(sort(cc, decreasing = TRUE))
+head(lc$numclusters)
+cm <- getCommunityConnectedness(lc, conn = "modularity")
+
+
+# Load the igraph package (install if needed)
+
+# the following example comes from this page (http://www.r-bloggers.com/network-visualization-in-r-with-the-igraph-package/)
+
+require(igraph)
+
+bsk<-read.table("http://www.dimiter.eu/Data_files/edgesdata3.txt", sep='\t', dec=',', header=T)
+bsk.network<-graph.data.frame(bsk, directed=F)
+V(bsk.network)
+E(bsk.network)
+degree(bsk.network)
+plot(bsk.network)
