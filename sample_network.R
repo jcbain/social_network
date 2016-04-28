@@ -38,3 +38,14 @@ V(bsk.network)
 E(bsk.network)
 degree(bsk.network)
 plot(bsk.network)
+
+# igraph with youtube data
+t<-read.csv('data/YouTube-dataset/data/edges.csv',header = FALSE)
+net<-graph.data.frame(t, directed=T)
+V(net)
+E(net)
+degree(net)
+plot(net)
+bad.vs<-V(net)[degree(net)<100]
+bsk.network<-delete.vertices(net, bad.vs)
+plot(bsk.network)
