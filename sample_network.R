@@ -39,6 +39,8 @@ E(bsk.network)
 degree(bsk.network)
 plot(bsk.network)
 
+
+require(igraph)
 # igraph with youtube data
 t<-read.csv('data/YouTube-dataset/data/edges.csv',header = FALSE)
 net<-graph.data.frame(t, directed=T)
@@ -49,3 +51,6 @@ plot(net)
 bad.vs<-V(net)[degree(net)<100]
 bsk.network<-delete.vertices(net, bad.vs)
 plot(bsk.network)
+
+g2 <- make_full_graph(4) + (make_full_graph(4) - path(1,2))
+predict_edges(g2)
