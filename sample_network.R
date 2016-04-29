@@ -90,3 +90,6 @@ plot(net2, layout=lay, vertex.size=1,
 g <- barabasi.game(10000)
 #to look up
 # http://horicky.blogspot.com/2012/04/basic-graph-analytics-using-igraph.html
+# http://www.londonr.org/presentations/2016/01/LondonR_-_Workshop-Network_Analysis_in_R_-_Doug_Ashton_-_20160126.pdf
+# http://www.r-bloggers.com/using-sna-in-predictive-modeling/ 
+# perhaps the route to go on this is to predict group affiliation based off of their network stats
