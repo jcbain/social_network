@@ -105,6 +105,6 @@ testgraphdata <- graph.data.frame(testdataframe, directed=TRUE, vertices = NULL)
 testgraphdata_cleaned <- delete.vertices(testgraphdata,
   V(testgraphdata)[!V(testgraphdata)$name
   %in% V(traininggraphdata)$name])
-predval<-page.rank(testgraphdata)$vector
+predval<-similarity(testgraphdata,method='ja')
 ## figure out
 diag(adjmatrix) <- FALSE
