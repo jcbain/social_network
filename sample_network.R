@@ -93,3 +93,18 @@ g <- barabasi.game(10000)
 # http://www.londonr.org/presentations/2016/01/LondonR_-_Workshop-Network_Analysis_in_R_-_Doug_Ashton_-_20160126.pdf
 # http://www.r-bloggers.com/using-sna-in-predictive-modeling/ 
 # perhaps the route to go on this is to predict group affiliation based off of their network stats
+
+# taking my example from this article
+# https://www.csc.ncsu.edu/faculty/samatova/practical-graph-mining-with-R/sample/chapter_5_LinkAnalysis.pdf
+t<-read.csv('data/YouTube-dataset/data/edges.csv',header = FALSE)
+trainingdataframe<-t[1:1500091,]
+testdataframe<-t[1500092:nrow(t),]
+rawgraphdata <- graph.data.frame(t,directed=TRUE, vertices = NULL)
+traininggraphdata <- graph.data.frame(trainingdataframe, directed=TRUE, vertices = NULL)
+testgraphdata <- graph.data.frame(testdataframe, directed=TRUE, vertices = NULL)
+testgraphdata_cleaned <- delete.vertices(testgraphdata,
+  V(testgraphdata)[!V(testgraphdata)$name
+  %in% V(traininggraphdata)$name])
+predval<-page.rank(testgraphdata)$vector
+## figure out
+diag(adjmatrix) <- FALSE
